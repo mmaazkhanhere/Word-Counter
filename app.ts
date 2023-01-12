@@ -8,7 +8,7 @@ var paragraph:string[]=[];
 
 function turnOffDisplay(){
     return new Promise((resolve)=>{
-        setTimeout(resolve,3000);
+        setTimeout(resolve,2500);
     })
 }
 
@@ -27,14 +27,13 @@ async function userParagraph(){
         message:'Please enter at least one sentence'
     }])
     paragraph.push(userpara.userpara);
-    console.log(paragraph);
 }
 
 async function wordCounter(){
     await titleDisplay();
     await userParagraph();
     let totalWords=paragraph[0].split(' ');
-    console.log(`Total words: ${totalWords.length}`);
+    console.log(chalk.bgBlue(`Total words: ${totalWords.length}`));
 }
 
 wordCounter();
