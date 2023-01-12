@@ -2,7 +2,7 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
-var paragraph = [];
+var paragraph = []; //an empty string array
 function turnOffDisplay() {
     return new Promise((resolve) => {
         setTimeout(resolve, 2500);
@@ -21,12 +21,12 @@ async function userParagraph() {
             type: 'input',
             message: 'Please enter at least one sentence'
         }]);
-    paragraph.push(userpara.userpara);
+    paragraph.push(userpara.userpara); //the user entered data is pushed into the paragraph array
 }
 async function wordCounter() {
-    await titleDisplay();
+    await titleDisplay(); //calling functions
     await userParagraph();
-    let totalWords = paragraph[0].split(' ');
-    console.log(chalk.bgBlue(`Total words: ${totalWords.length}`));
+    let totalWords = paragraph[0].split(' '); //splitting the string on the basis of 'space'. Result stored as an array
+    console.log(chalk.bgBlue(`Total words: ${totalWords.length}`)); //displaying the total number of words
 }
 wordCounter();
