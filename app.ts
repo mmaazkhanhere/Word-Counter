@@ -29,5 +29,12 @@ async function userParagraph(){
     paragraph.push(userpara.userpara);
     console.log(paragraph);
 }
-await titleDisplay();
-userParagraph();
+
+async function wordCounter(){
+    await titleDisplay();
+    await userParagraph();
+    let totalWords=paragraph[0].split(' ');
+    console.log(`Total words: ${totalWords.length}`);
+}
+
+wordCounter();
