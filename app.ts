@@ -4,6 +4,8 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation"
 
+var paragraph:string[]=[];
+
 function turnOffDisplay(){
     return new Promise((resolve)=>{
         setTimeout(resolve,3000);
@@ -18,4 +20,14 @@ async function titleDisplay(){
     secondTitle.stop();
 }
 
-titleDisplay();
+async function userParagraph(){
+    let userpara= await inquirer.prompt([{
+        name:'userpara',
+        type:'input',
+        message:'Please enter at least one sentence'
+    }])
+    paragraph.push(userpara.userpara);
+    console.log(paragraph);
+}
+await titleDisplay();
+userParagraph();
